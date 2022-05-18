@@ -1,0 +1,7 @@
+<style>
+  p {
+    font-size: 16px;
+  }
+</style>
+<h2 class="red-text">H2 Heading</h2>
+<p class="red-text"> paragraph </p>

@@ -1,0 +1,6 @@
+<style>
+  .red-text {
+    color: red;
+  }
+</style>
+<h2 class="red-text">H2 Heading</h2>

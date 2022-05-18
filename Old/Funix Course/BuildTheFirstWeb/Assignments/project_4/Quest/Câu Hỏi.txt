@@ -1,0 +1,5 @@
+1. Cách Zoom out, Zoom in mà không dùng px?
+1.1. % Khác gì vw, tại sao tất cả dùng vw thì đc mà vh thì không được?	
+2. (File css trong folder 2) - Làm cách nào đưa chữ vào giữ hình ()?
+3. Cách border-radius chùm ảnh?
+4. Mua host + domain trang nào rẻ nhất?

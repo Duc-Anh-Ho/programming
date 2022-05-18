@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body {
+            margin: 0;
+            background-image: url("project2-output.png");
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        } */
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        img {
+            width: 100%;
+            z-index: -1  ;
+            position:unset;
+        }
+
+
+        @media only screen and (min-width: 992px) {
+            .mobile, .tablet{
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 991px) and (min-width: 768px) {
+            .desktop, .mobile{
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .desktop, .tablet{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img class="desktop" src="https://courses.funix.edu.vn/assets/courseware/v1/57187d7c125207792fa5e9876a90b294/asset-v1:FUNiX+WEB101x_02_VN+2020_T2+type@asset+block/project2-output.png" alt="">
+    <img class="tablet" src="https://lh6.googleusercontent.com/L5ZYtV9R_vH7kdUdUdMlLoi7-zNIOdmpVUGnE1yPOoM-xGwIAiOdhPY7UkPf98MGa_rqZCnAvJ1AmMOQ5rOvu3oWx-9IUrPl84YpH_rdUVDyDje1sIXYywoMCUtxIp899ztbE29UMrLhPYySqw" alt="">
+    <img class="mobile" src="https://lh5.googleusercontent.com/LJgesTzWCZKudigCb84EozGKirFF3Pewh5WrUR5Ti0v6T_3K5xgKqnK4B4L-3fMUxT1AMO2e0emWs5g8W8F3t6lnCxn6fw-PN1bekfY8d7p0fjyRv3GNcxLCeCChA1xl2cgyxD9LSBDKo5uGjg" alt="">
+</body>
+</html>

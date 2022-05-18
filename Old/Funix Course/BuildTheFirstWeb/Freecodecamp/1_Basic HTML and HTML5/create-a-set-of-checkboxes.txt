@@ -1,0 +1,14 @@
+<form>
+  <label>
+    <input type="checkbox" name="personality">
+    label 1
+  </label>
+  <label>
+    <input type="checkbox" name="personality">
+    label 2
+  </label>
+  <label>
+    <input type="checkbox" name="personality">
+    label 3
+  </label>
+</form>

@@ -1,0 +1,6 @@
+<p>
+  Click here to view more 
+  <a href="#">
+  <img>  
+  </a>.
+</p>

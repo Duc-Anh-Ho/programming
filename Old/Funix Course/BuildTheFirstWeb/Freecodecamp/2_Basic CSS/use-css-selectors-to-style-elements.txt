@@ -1,0 +1,6 @@
+<style>
+  h2 {
+    color: blue;
+  }
+</style>
+<h2>h2 heading</h2>

@@ -1,0 +1,10 @@
+<form>
+  <label>
+    <input type="radio" name="indoor-outdoor">
+    indoor
+  </label>
+  <label>
+    <input type="radio" name="indoor-outdoor">
+    outdoor
+  </label>
+</form>

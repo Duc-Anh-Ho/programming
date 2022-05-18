@@ -1,0 +1,8 @@
+<label for="indoor">
+  <input type="radio" checked> 
+  Indoor
+</label>  
+<label for="loving">
+  <input type="checkbox" checked>
+  Loving
+</label>

@@ -1,0 +1,171 @@
+/* For tablet: */
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+
+    /* .col-tablet-1 {width: calc(100% / calc(12 / 1));} */
+    /* .col-tablet-2 {width: calc(100% / calc(12 / 2));} */
+    /* .col-tablet-3 {width: calc(100% / calc(12 / 3));} */
+    /* .col-tablet-4 {width: calc(100% / calc(12 / 4));} */
+    /* .col-tablet-5 {width: calc(100% / calc(12 / 5));} */
+    .col-tablet-6 {width: calc(100% / calc(12 / 6));}
+    /* .col-tablet-7 {width: calc(100% / calc(12 / 7));} */
+    /* .col-tablet-8 {width: calc(100% / calc(12 / 8));} */
+    /* .col-tablet-9 {width: calc(100% / calc(12 / 9));} */
+    /* .col-tablet-10 {width: calc(100% / calc(12 / 10));} */
+    /* .col-tablet-11 {width: calc(100% / calc(12 / 11));} */
+    .col-tablet-12 {width: calc(100% / calc(12 / 12));}
+    
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: content-box;
+    }
+
+    header {
+        height: 11.5vw;
+        background-color: #556270;
+        position: relative;
+        /* Cố định menu */
+        /* position: fixed;
+        z-index: 1; */
+    }
+
+    header li {
+        display: inline-block;
+        list-style-type: none;
+        position: relative;
+        left: 4.2vw;
+        right: 4.2vw;
+        margin-top: 5.95vw;
+        margin-right: 1.65vw;
+    } 
+
+    #left-menu {
+        margin-left: 0;
+    }
+
+    #right-menu {
+        margin-left: 49.6vw;
+    }
+
+    header li a {
+        font-size: 2vw;
+        font-family: 'Archivo Narrow', sans-serif;
+        color:#d5daeb;
+        text-shadow: 0.05rem 0 #d5daeb;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05vw;
+        display: block;
+    }
+
+    .banner {
+        height: 22.2vw;
+        margin: 0;
+        background-color: white;
+        background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
+        background-size: cover;
+        background-image:none;
+        margin: 0 2.4vw;
+        border-bottom: 0.3vw solid #efefef;
+    }
+
+    #banner-text {
+        margin: 0;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Thẻ headding */
+    #banner-text h1, #middle-text h2, .bottom-content h3 {
+        margin-top: 7.8vw;
+        color:rgba(0, 0, 0, 60%);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 3.8vw;
+        font-weight: bold;
+        letter-spacing: 0.25vw;
+        text-shadow: 0.08rem 0.08rem 0.08rem rgba(0, 0, 0, 70%);
+    }
+
+    .bottom-content h3 {
+        margin-top: 2vw;
+    }
+
+    #middle-text h2{
+        margin-top: 4.85vw;
+    }
+    
+    /* Thẻ p */
+    #banner-text p, #middle-text p, .bottom-content p {
+        color: rgba(0, 0, 0, 30%);
+        margin: 4.15vw 0 0 0;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.7vw; 
+        letter-spacing: -0.01vw;
+        word-spacing: -0.04vw;
+        line-height: 1.5vw;
+        text-shadow: none;
+    }
+
+
+    #middle-text p, .bottom-content p{
+        margin-top: 1.75vw;    
+    }
+
+    .middle {
+        width: auto;
+        height: auto;
+        margin: 0 2.4vw;
+        background-color: white;
+        border: none;
+    }
+
+    #middle-image {
+        margin: 5.05vw 1vw 0;
+        display: flex;
+        float: none;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    #middle-image section {
+        flex: 1;
+    }
+
+    .col-tablet-6 {
+        float: none;
+    }
+
+    .col-tablet-6 > img {
+        height: auto;
+        width: 42vw;
+        margin-bottom: 7.2vw;
+        margin-right: 0;
+    }
+
+    footer {
+        background-color: white;
+        height: auto;
+        border: none;
+    }
+
+    .bottom-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0 0 9.5vw 2.4vw;
+        padding: 0;
+        float: left;
+        width: auto;
+        height: auto;
+        color: none;
+        letter-spacing: -0.02vw;
+    }
+
+    .bottom-content a{
+        color: #8fadd1;
+        font-weight: lighter;
+        text-decoration: underline;
+    }
+}

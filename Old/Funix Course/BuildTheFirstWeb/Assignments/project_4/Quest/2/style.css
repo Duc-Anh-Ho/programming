@@ -1,0 +1,143 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* <!-- Tắt cái quảng cáo của 000webhost--> */
+.disclaimer {
+    display:none;
+ }
+
+ * {
+    /* font-family: 'Nunito', sans-serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: 'Oswald', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    box-sizing: content-box;
+}
+
+
+header {
+    top: 0;
+    /* height: 5.75vw; */
+    height: 10%;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    z-index: 1;
+}
+
+.menu-bar{
+    position: absolute;
+    top: 2.25vw;
+    left: 14vw;
+    display: inline-flex;
+    width: 80vw;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.menu-bar a{
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1.2vw;
+    text-transform: uppercase;
+}
+
+.menu-bar a:hover{
+    opacity: 0.7;
+    text-decoration:underline;
+}
+
+
+#logo{
+    position: absolute;
+    top: 1.45vw;
+    left: 1vw;
+    transform: rotate(-22deg);
+    font-size: 1.95vw;
+    font-weight: 900;
+    border: 0.35vw solid #f09b51;
+    border-radius: 1vw;
+    color: #f09b51;
+}
+
+#logo:hover{
+    text-decoration: none;
+    opacity: 1;
+}
+
+.slogan-banner{
+    position: relative;
+    margin-top: 5.75vw;
+    background-image: url("/public_html/pictures/Landmark-81-2.jpg");
+    background-size: cover;
+    height: 43.5vw;
+    width: 100vw;
+}
+
+.slogan-banner article{
+    position: relative;
+    width: 28vw;
+    top: 8.8vw;
+    left: 10vw;
+    color: whitesmoke;
+    font-size: 2vw;
+    font-weight: 900;
+}
+
+.slogan-banner article p{
+    font-size: 0.7vw;
+    font-weight: 500;
+    letter-spacing: 0.04vw;
+    margin-top: 1vw;
+}
+
+.slogan-banner article a p{
+    color: white;
+    font-size: 1.1vw;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-top: 0.4vw;
+}
+
+.slogan-banner article a p:hover{
+    opacity: 0.7;
+    text-decoration:underline;
+}
+
+.middle{
+    position: relative;
+    border: 10px solid red;
+}
+
+.middle-column{
+    display: flex;
+    border: 10px solid orange;
+    align-items: center;
+    justify-content: center;
+    
+}
+.middle-box{
+    width: calc(7vw * 4);
+    height: calc(5vw * 4);
+    border: 10px solid rgb(255, 0, 170);
+}
+
+.middle-box img{
+    width: calc(7vw * 4);
+    object-fit: cover;
+    /* display: none; */
+}
+
+.middle-box a{
+    text-align:center;
+    
+    vertical-align: middle;
+    border: 10px solid blue;
+}
+
+

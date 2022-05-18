@@ -1,0 +1,167 @@
+/* For desktop: */
+@media only screen and (max-width: 767px) {
+    /* .col-mobile-1 {width: calc(100% / calc(12 / 1));} */
+    /* .col-mobile-2 {width: calc(100% / calc(12 / 2));} */
+    /* .col-mobile-3 {width: calc(100% / calc(12 / 3));} */
+    /* .col-mobile-4 {width: calc(100% / calc(12 / 4));} */
+    /* .col-mobile-5 {width: calc(100% / calc(12 / 5));} */
+    /* .col-mobile-6 {width: calc(100% / calc(12 / 6));} */
+    /* .col-mobile-7 {width: calc(100% / calc(12 / 7));} */
+    /* .col-mobile-8 {width: calc(100% / calc(12 / 8));} */
+    /* .col-mobile-9 {width: calc(100% / calc(12 / 9));} */
+    /* .col-mobile-10 {width: calc(100% / calc(12 / 10));} */
+    /* .col-mobile-11 {width: calc(100% / calc(12 / 11));} */
+    .col-mobile-12 {width: calc(100% / calc(12 / 12));}
+
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: content-box;
+    }
+
+
+    header {
+        height: 26vw;
+        width: 100%;
+        top: 0px;
+        bottom: 0px;
+        background-color: #556270;
+        position: relative;
+        /* Cố định menu */
+        /* position: fixed;
+        z-index: 1; */
+    }
+
+    header li {
+        display: inline-block;
+        list-style-type: none;
+        position: relative;
+        left: 5.1vw;
+        margin: 11.4vw 8.75vw 0 0;
+       
+    } 
+
+    #left-menu {
+        margin-left: auto;
+    }
+
+    #right-menu {
+        margin-left: auto;
+    }
+
+    header li a {
+        font-size: 3.15vw;
+        font-family: 'Archivo Narrow', sans-serif;
+        color:#d5daeb;
+        text-shadow: 0.07rem 0 #d5daeb;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05vw;
+        display: inline-block;
+    }
+
+    .banner {
+        position: relative;
+        height: 70vw;
+        width: 90vw;
+        margin: auto;
+        background-color: white;
+        background-image: url("https://s3.amazonaws.com/codecademy-content/courses/ltp/img/lodging.png");
+        background-size: cover;
+        background-image: none;
+        border-bottom: 0.5vw solid #efefef;
+    }
+
+    #banner-text {
+        display: inline-block;
+        position: absolute;    
+        color:white;
+        margin: auto;
+    }
+
+    /* Thẻ headding */
+    #banner-text h1, #middle-text h2,.bottom-content h3 {  
+        color:rgba(0, 0, 0, 80%);
+        text-shadow: 0.08rem 0.08rem 0.08rem rgba(0, 0, 0, 90%);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10vw;
+        letter-spacing: 0.35vw;
+        line-height: 13.5vw;
+        font-weight: bold;
+        margin: 17.1vw 0 0;
+    }
+
+    .middle {
+        position: relative;
+        height: auto;
+        width: 90vw;
+        background-color: white;
+        margin: auto;
+        border: none;
+    }
+
+    /* Thẻ p */
+    #banner-text p, #middle-text p, .bottom-content p {
+        color: rgba(0, 0, 0, 90%);
+        margin: 5.2vw 0 0 0;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 3.48vw;
+        letter-spacing: 0.01vw;
+        word-spacing: -0.1vw;
+        line-height: 5.5vw;
+        text-shadow: none;
+    }
+
+    #middle-image {
+        margin: 2.5vw 0 0 0;
+        display: flex;
+        flex-wrap: wrap;    
+        justify-content: space-around;
+        
+    }
+    #middle-image section {
+         flex: 1;
+    }
+
+    .col-mobile-12{
+        float: none;
+    }
+
+    .col-mobile-12 > img{
+        height: auto;
+        width: 82vw;
+        margin: 16vw 0 0;
+    }
+
+    footer {
+        position: relative;
+        height: auto;
+        width: 90vw;
+        margin: auto;
+        background-color: white;
+        height: auto;
+        border: none;
+    }
+
+    .bottom-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        float: left;
+        width: auto;
+        height: auto;
+        color: none;
+        letter-spacing: -0.02vw;
+    }
+
+
+    .bottom-content a{
+        color: black;
+        font-weight: lighter;
+        text-decoration: underline;
+    }
+}
