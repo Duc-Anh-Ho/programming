@@ -2,7 +2,7 @@
 
 //-DEFINE-
 //Define Variables
-const petArr = []; //all pet be saved here.
+const petArr = getFromStorage("petArr"); //all pet be saved here.
 let healthyPetArr = []; //healthy pet be saved here - use let becasue attach to filtered petArr
 const minAge = 1;
 const maxAge = 15;
@@ -37,7 +37,7 @@ const activeSideBar = document.querySelector("#sidebar");
 ////////// -ASSIGNMENT 1-
 //#region
 //-FUNCTIONS-
-//Collect data (2)
+//Collect pet data (2)
 function collectData() {
   data = {
     id: idInput.value,
@@ -51,7 +51,7 @@ function collectData() {
     vaccinated: vaccinatedInput.checked,
     dewormed: dewormedInput.checked,
     sterilized: sterilizedInput.checked,
-    date: new Date(),
+    date: new Date().toLocaleDateString("en-US"),
   };
 }
 //Check invalid data (3)
@@ -79,6 +79,7 @@ function checkInvalidData() {
     alertMassage = "";
   } else {
     petArr.push(data); //add data to arrPet (4)
+    saveToStorage("petArr", petArr); //Save to LocalStorage (2-2)
     deleteInputData(); // delete input data (5)
   }
 }
@@ -125,7 +126,7 @@ function renderTableData(pet) {
   <td>
      <i id=pet-BMI-${pet.id}>?<i>
   </td>
-	<td>${pet.date.toLocaleDateString("en-US")}</td>
+	<td>${pet.date}</td>
 	<td>
 		<button class="btn btn-danger" onclick="deletePet('${pet.id}')">Delete</button>
 	</td>
@@ -168,6 +169,7 @@ function deletePet(petID) {
           deleteTableData();
           petArr.splice(i, 1); ///***IMPORTANT: splice NOT slice
           displayTableData(petArr);
+          saveToStorage("petArr", petArr); //Save to LocalStorage (2-2)
         }
       }
     }
@@ -193,7 +195,9 @@ function calcBMI(type, weight, length) {
 }
 //-MAIN-
 // Delete old data in table
-deleteTableData();
+// deleteTableData();
+// Dispolay data in LocalStorage (2-2)
+displayTableData(petArr);
 //When press Submit Button (1)
 submitBtn.addEventListener("click", function (e) {
   //Collect data (2)
@@ -251,7 +255,7 @@ calcBMIBtn.addEventListener("click", function (e) {
 //#endregion
 
 ////////// -ASSIGNMENT 2-
-// Animation when click sidebar
+// Animation when click sidebar (2-1)
 activeSideBar.addEventListener("click", function (e) {
   activeSideBar.classList.toggle("active");
 });
