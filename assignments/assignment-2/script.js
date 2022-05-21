@@ -14,6 +14,7 @@ const dogIndex = 703;
 const catIndex = 886;
 let row;
 let data;
+let option;
 let alertMassage = "";
 let healthyCheck = false;
 //Define Selectors
@@ -255,7 +256,30 @@ calcBMIBtn.addEventListener("click", function (e) {
 //#endregion
 
 ////////// -ASSIGNMENT 2-
+//#region 2
+//-FUNCTIONS-
+// Display Breed (2-4)
+function renderTableBreedData(breed) {
+  option = document.createElement("option");
+  option.innerHTML = breed;
+  return option;
+}
+function displayBreedData(breedArr) {
+  breedInput.innerHTML = "<option>Select Breed</option>";
+  breedArr.forEach((item, i) => {
+    if (typeInput.value === item.type) {
+      breedInput.appendChild(renderTableBreedData(item.breed));
+    }
+  });
+}
+//-MAIN-
 // Animation when click sidebar (2-1)
 activeSideBar.addEventListener("click", function (e) {
   activeSideBar.classList.toggle("active");
 });
+// When change Type (2-4)
+typeInput.addEventListener("change", function (e) {
+  displayBreedData(getFromStorage("breedArr"));
+});
+
+// #endregion

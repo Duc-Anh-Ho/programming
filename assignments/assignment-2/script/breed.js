@@ -63,14 +63,12 @@ function deleteTableData() {
 }
 //Add breed data to table (2-3)
 function displayTableBreedData(array) {
-  for (let i = 0; i < array.length; i++) {
-    renderTableBreedData(array[i]);
-  }
+  array.forEach((item, i) => renderTableBreedData(item));
 }
 function deleteBreed(breedId) {
   if (confirm(`Do you want to delete Breed No#${breedId}?`)) {
     breedArr.forEach((item, i) => {
-      if (breedArr[i].id === breedId) breedArr.splice(i, 1);
+      if (item.id === breedId) breedArr.splice(i, 1);
       //Delete old data in table (2-3)
       deleteTableData();
       displayTableBreedData(breedArr);
