@@ -77,9 +77,11 @@ function deleteBreed(breedId) {
   }
 }
 //-MAIN-
-// Animation when click sidebar(2-1)
+// Animation when click sidebar
 activeSideBar.addEventListener("click", function (e) {
-  activeSideBar.classList.toggle("active");
+  // Check click on sidebar only
+  if (e.target.contains(activeSideBar))
+    activeSideBar.classList.toggle("active");
 });
 // Dispolay data in LocalStorage (2-3)
 displayTableBreedData(breedArr);
