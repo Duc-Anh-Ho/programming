@@ -210,8 +210,6 @@ submitBtn.addEventListener("click", function (e) {
   // Add data to table(4)
   checkHealthy(); // Must check this first for case add new healthy pet when healthy check
   healthyCheck ? displayTableData(healthyPetArr) : displayTableData(petArr);
-  // Remove current breed display
-  displayBreedData(getFromStorage("breedArr"));
 });
 //When press Show Button (7)
 showBtn.addEventListener("click", function (e) {
@@ -275,11 +273,9 @@ function displayBreedData(breedArr) {
   });
 }
 //-MAIN-
-// Animation when click sidebar
+// Animation when click sidebar (2-1)
 activeSideBar.addEventListener("click", function (e) {
-  // Check click on sidebar only
-  if (e.target.contains(activeSideBar))
-    activeSideBar.classList.toggle("active");
+  activeSideBar.classList.toggle("active");
 });
 // When change Type (2-4)
 typeInput.addEventListener("change", function (e) {

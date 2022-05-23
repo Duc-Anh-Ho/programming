@@ -59,6 +59,7 @@ function checkInvalidData() {
   }
   // Check invalid data
   if (!data.id) alertMassage += `Please input Pet ID!\n`;
+  if (!data.name) alertMassage += `Please input Pet Name!\n`;
   if (!data.age) alertMassage += `Please input Age!\n`;
   else if (!(data.age >= minAge && data.age <= maxAge))
     alertMassage += `Age must be between ${minAge} and ${maxAge}!\n`;
@@ -203,10 +204,6 @@ submitBtn.addEventListener("click", function (e) {
   // Add data to table(4)
   checkHealthy(); // Must check this first for case add new healthy pet when healthy check
   healthyCheck ? displayTableData(healthyPetArr) : displayTableData(petArr);
-
-  // // Test
-  // console.log(data);
-  // console.log(petArr);
 });
 //When press Show Button (7)
 showBtn.addEventListener("click", function (e) {
@@ -227,10 +224,6 @@ showBtn.addEventListener("click", function (e) {
     deleteTableData();
     displayTableData(petArr);
   }
-
-  // // Test
-  // console.log(petArr);
-  // console.log(healthyPetArr);
 });
 //When press BMI Button (8)
 calcBMIBtn.addEventListener("click", function (e) {
