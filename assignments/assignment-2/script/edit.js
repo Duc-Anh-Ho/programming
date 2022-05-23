@@ -90,6 +90,7 @@ function displayEditTable() {
 
 function collectData() {
   data = {
+    id: idInput.value,
     name: nameInput.value,
     age: parseInt(ageInput.value), //Return parseInt (same same number)
     type: typeInput.value,
@@ -106,9 +107,28 @@ function collectData() {
 function deleteTableData() {
   tableBodyEl.innerHTML = "";
   // Hide Edit Form
-  editTable.classList.add("hide");
+  // editTable.classList.add("hide");
 }
-function checkInvalidData(petID) {
+//update data to arrPet (2-6)
+function updateEdittedPetArr(petID) {
+  let tempArr = getFromStorage("petArr");
+  tempArr.forEach((item) => {
+    if (item.id === petID) {
+      item.name = data.name;
+      item.age = data.age;
+      item.type = data.type;
+      item.weight = data.weight;
+      item.length = data.length;
+      item.color = data.color;
+      item.breed = data.breed;
+      item.vaccinated = data.vaccinated;
+      item.dewormed = data.dewormed;
+      item.sterilized = data.sterilized;
+      saveToStorage("petArr", tempArr);
+    }
+  });
+}
+function checkInvalidData() {
   // Check invalid data
   if (!data.name) alertMassage += `Please input Pet Name!\n`;
   if (!data.age) alertMassage += `Please input Age!\n`;
@@ -127,21 +147,7 @@ function checkInvalidData(petID) {
     alertMassage = "";
   } else {
     //update data to arrPet (2-6)
-    getFromStorage("petArr").forEach((item) => {
-      if (item.id === petID) {
-        console.log(item.name, nameInput.value);
-        item.name = nameInput.value;
-        item.age = ageInput.value;
-        item.type = typeInput.value;
-        item.type = typeInput.value;
-        item.weight = weightInput.value;
-        item.length = lengthInput.value;
-        item.color = colorInput.value;
-        item.vaccinated = vaccinatedInput.checked;
-        item.dewormed = dewormedInput.checked;
-        item.sterilized = sterilizedInput.checked;
-      }
-    });
+    updateEdittedPetArr(data.id);
   }
 }
 // When pess Edit Button (2-6)
@@ -190,7 +196,7 @@ submitBtn.addEventListener("click", function (e) {
   //Collect data
   collectData();
   //Check data invalid
-  checkInvalidData(idInput.value);
+  checkInvalidData();
   //Delete old data in table
   deleteTableData();
   //Display table
