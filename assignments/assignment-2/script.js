@@ -275,7 +275,8 @@ function displayBreedData(breedArr) {
 //-MAIN-
 // Animation when click sidebar (2-1)
 activeSideBar.addEventListener("click", function (e) {
-  activeSideBar.classList.toggle("active");
+  if (e.target.contains(activeSideBar))
+    activeSideBar.classList.toggle("active");
 });
 // When change Type (2-4)
 typeInput.addEventListener("change", function (e) {
