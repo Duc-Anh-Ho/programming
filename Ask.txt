@@ -3,7 +3,3 @@
 //3. Có nên luôn luôn không sử dụng arrow function và var khi khai báo để tránh lỗi không mong muốn không?
 3. Tại sao thêm button bằng js lại không giống thêm bằng html (vd trong Question3)
 4. Phân biệt sau dấu . khi nào là Attributes, Elements, Properties, Methods. (Trong Object, Function, DOM, OOP)
-
-Kinh nghiệm học tập cho khi tiếp cận với việc học lập trình: https://bit.ly/3OuNgim
-Một số “trở ngại” có thể gặp trong quá trình học lập trình và phương pháp để vượt qua: https://bit.ly/3rMRSa1
-Outsourcing hay product? Anh em fresher cần quan tâm điều gì khi chọn công việc đầu tiên: https://bit.ly/36GPFWf
