@@ -1,5 +1,0 @@
-1. x =  10 (200 > x > 100) JavaScript?
-//2. Khác nhau giữa functionName và functionName() - Vd: trong addEventListener.
-//3. Có nên luôn luôn không sử dụng arrow function và var khi khai báo để tránh lỗi không mong muốn không?
-3. Tại sao thêm button bằng js lại không giống thêm bằng html (vd trong Question3)
-4. Phân biệt sau dấu . khi nào là Attributes, Elements, Properties, Methods. (Trong Object, Function, DOM, OOP)
