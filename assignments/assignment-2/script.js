@@ -15,7 +15,7 @@ const catIndex = 886;
 let row;
 let data;
 let option;
-let alertMassage = "";
+let alertMessage = "";
 let healthyCheck = false;
 //Define Selectors
 const submitBtn = document.querySelector("#submit-btn");
@@ -59,25 +59,25 @@ function collectData() {
 function checkInvalidData() {
   // Check duplicate ID
   for (let i = 0; i < petArr.length; i++) {
-    if (petArr[i].id === data.id) alertMassage += "ID must unique!\n";
+    if (petArr[i].id === data.id) alertMessage += "ID must unique!\n";
   }
   // Check invalid data
-  if (!data.id) alertMassage += `Please input Pet ID!\n`;
-  if (!data.age) alertMassage += `Please input Age!\n`;
+  if (!data.id) alertMessage += `Please input Pet ID!\n`;
+  if (!data.age) alertMessage += `Please input Age!\n`;
   else if (!(data.age >= minAge && data.age <= maxAge))
-    alertMassage += `Age must be between ${minAge} and ${maxAge}!\n`;
-  if (data.breed === "Select Breed") alertMassage += `Please select Breed!\n`;
-  if (data.type === "Select Type") alertMassage += `Please select Type!\n`;
-  if (!data.weight) alertMassage += `Please input Weight!\n`;
+    alertMessage += `Age must be between ${minAge} and ${maxAge}!\n`;
+  if (data.breed === "Select Breed") alertMessage += `Please select Breed!\n`;
+  if (data.type === "Select Type") alertMessage += `Please select Type!\n`;
+  if (!data.weight) alertMessage += `Please input Weight!\n`;
   else if (!(data.weight >= minWeight && data.weight <= maxWeight))
-    alertMassage += `Weight must be between ${minWeight} and ${maxWeight}!\n`;
-  if (!data.length) alertMassage += `Please input Length!\n`;
+    alertMessage += `Weight must be between ${minWeight} and ${maxWeight}!\n`;
+  if (!data.length) alertMessage += `Please input Length!\n`;
   else if (!(data.length >= minLength && data.length <= maxLength))
-    alertMassage += `Length must be between ${minLength} and ${maxLength}!\n`;
-  //Display alert massagae (3)
-  if (alertMassage) {
-    alert(alertMassage);
-    alertMassage = "";
+    alertMessage += `Length must be between ${minLength} and ${maxLength}!\n`;
+  //Display alert message (3)
+  if (alertMessage) {
+    alert(alertMessage);
+    alertMessage = "";
   } else {
     petArr.push(data); //add data to arrPet (4)
     saveToStorage("petArr", petArr); //Save to LocalStorage (2-2)
