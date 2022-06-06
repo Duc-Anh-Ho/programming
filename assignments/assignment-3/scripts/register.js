@@ -1,6 +1,7 @@
 "use strict";
 
 //-DEFINE-
+let alertMessage = "";
 const userArr = getFromStorage("userArr");
 const registerBtn = document.querySelector("#btn-submit");
 const passwordMinLength = 8;
@@ -23,12 +24,12 @@ class User {
     console.log("LN:", this.lastName);
     console.log("UN:", this.username);
     console.log("PW:", this.password);
+    userArr.push(this);
   }
 }
 
 //-FUNCTION-
 function checkInvalidUser() {
-  let alertMessage = "";
   // Check invalid input
   if (!firstNameInput.value) alertMessage += "Please Input First Name!\n";
   if (!lastNameInput.value) alertMessage += "Please Input Last Name!\n";
@@ -46,14 +47,27 @@ function checkInvalidUser() {
 }
 //-MAIN-
 registerBtn.addEventListener("click", function (e) {
-  console.log(checkInvalidUser());
-  const test = new User(
+  // console.log(checkInvalidUser());
+  const inputUser = new User(
     firstNameInput.value,
     lastNameInput.value,
     userNameInput.value,
     passwordInput.value
   );
-  test.save();
-  console.log(test.firstName);
+  inputUser.save();
+  // // Move page
+  // window.location.href = "../pages/login.html";
+  // Test
+  function parseUser(userData) {
+    const user = new User(
+      userData.firstName,
+      userData.lastName,
+      userData.username,
+      userData.password
+    );
+    return user;
+  }
+  const testP = parseUser(inputUser);
+  console.log(testP);
+  console.log(inputUser);
 });
-// Test
