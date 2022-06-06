@@ -1,0 +1,50 @@
+[
+  {
+    "username": "Ti_sieu_quay",
+    "firstName": "Tí ",
+    "lastName": "Truong",
+    "password": "tíieuquay"
+  },
+  {
+    "username": "Le_Ti",
+    "firstName": "Ti",
+    "lastName": "Le",
+    "password": "123456789"
+  },
+  {
+    "username": "Teo Em",
+    "firstName": "Teo",
+    "lastName": "Nguyen",
+    "password": "123456789"
+  },
+  {
+    "username": "Tun Lun",
+    "firstName": "Tun",
+    "lastName": "Tran",
+    "password": "123456789a"
+  },
+  {
+    "username": "Bi_Beo",
+    "firstName": "Bi",
+    "lastName": "Ngo",
+    "password": "BiNgo12345"
+  },
+  {
+    "username": "Cu_Nguyen_111",
+    "firstName": "Cu",
+    "lastName": "Nguyen",
+    "password": "CuNguyen123"
+  },
+  {
+    "username": "Long_Dragon",
+    "firstName": "Long",
+    "lastName": "Pham",
+    "password": "LongDepTrai"
+  },
+  {
+    "username": "Danh_Bui_2k",
+    "firstName": "Danh",
+    "lastName": "Bui",
+    "password": "HoDucAnh123"
+  }
+]

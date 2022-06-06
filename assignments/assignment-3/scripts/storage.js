@@ -15,7 +15,13 @@ function saveToStorage(key, value) {
   }
 }
 
+// Get from storage
 function getFromStorage(key) {
   // Check if 1st time don't have data yet
   return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
+}
+
+// Delete storage
+function deleteStorage(key) {
+  localStorage.removeItem(key);
 }

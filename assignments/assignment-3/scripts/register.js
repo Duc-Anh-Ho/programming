@@ -7,7 +7,7 @@ const registerBtn = document.querySelector("#btn-submit");
 const passwordMinLength = 8;
 const firstNameInput = document.querySelector("#input-firstname");
 const lastNameInput = document.querySelector("#input-lastname");
-const userNameInput = document.querySelector("#input-username");
+const usernameInput = document.querySelector("#input-username");
 const passwordInput = document.querySelector("#input-password");
 const confirmPasswordInput = document.querySelector("#input-password-confirm");
 
@@ -20,20 +20,28 @@ class User {
     this.password = password;
   }
   save() {
-    console.log("FN:", this.firstName);
-    console.log("LN:", this.lastName);
-    console.log("UN:", this.username);
-    console.log("PW:", this.password);
-    userArr.push(this);
+    userArr.push({
+      // Class Intance to Object
+      username: this.username,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      password: this.password,
+    });
+    saveToStorage("userArr", userArr);
   }
 }
 
 //-FUNCTION-
 function checkInvalidUser() {
+  // Check duplicate username
+  userArr.forEach((item, i) => {
+    if (usernameInput.value === item.username)
+      alertMessage += "Username already exists!\n";
+  });
   // Check invalid input
   if (!firstNameInput.value) alertMessage += "Please Input First Name!\n";
   if (!lastNameInput.value) alertMessage += "Please Input Last Name!\n";
-  if (!userNameInput.value) alertMessage += "Please Input User Name!\n";
+  if (!usernameInput.value) alertMessage += "Please Input Username!\n";
   if (!(passwordInput.value.length > passwordMinLength))
     alertMessage += "Password must be greater than 8 characters!\n";
   else if (passwordInput.value !== confirmPasswordInput.value)
@@ -46,28 +54,21 @@ function checkInvalidUser() {
   } else return true;
 }
 //-MAIN-
-registerBtn.addEventListener("click", function (e) {
-  // console.log(checkInvalidUser());
-  const inputUser = new User(
-    firstNameInput.value,
-    lastNameInput.value,
-    userNameInput.value,
-    passwordInput.value
-  );
-  inputUser.save();
-  // // Move page
-  // window.location.href = "../pages/login.html";
-  // Test
-  function parseUser(userData) {
-    const user = new User(
-      userData.firstName,
-      userData.lastName,
-      userData.username,
-      userData.password
+// When click Register Button
+registerBtn.addEventListener("click", function () {
+  if (checkInvalidUser()) {
+    const inputUser = new User(
+      firstNameInput.value,
+      lastNameInput.value,
+      usernameInput.value,
+      passwordInput.value
     );
-    return user;
+    inputUser.save();
+    // Move to login
+    window.location.href = "../pages/login.html";
   }
-  const testP = parseUser(inputUser);
-  console.log(testP);
-  console.log(inputUser);
+});
+// When press Enter Key
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") registerBtn.click();
 });
