@@ -8,7 +8,6 @@ const logoutContainer = document.querySelector("#main-content");
 const welcomeMess = document.querySelector("#welcome-message");
 const logoutBtn = document.querySelector("#btn-logout");
 
-//-CLASS-
 //-FUNCTION-
 function checkCurrentUser() {
   currentUser = getFromStorage("currentUser");
@@ -21,6 +20,7 @@ function checkCurrentUser() {
     logoutContainer.style.display = "block";
   }
 }
+
 // -MAIN-
 checkCurrentUser();
 logoutBtn.addEventListener("click", function (e) {

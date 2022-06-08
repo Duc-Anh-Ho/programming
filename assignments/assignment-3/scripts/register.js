@@ -11,26 +11,6 @@ const usernameInput = document.querySelector("#input-username");
 const passwordInput = document.querySelector("#input-password");
 const confirmPasswordInput = document.querySelector("#input-password-confirm");
 
-//-CLASS-
-class User {
-  constructor(firstName, lastName, username, password) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.username = username;
-    this.password = password;
-  }
-  save() {
-    userArr.push({
-      // Class Intance to Object
-      username: this.username,
-      firstName: this.firstName,
-      lastName: this.lastName,
-      password: this.password,
-    });
-    saveToStorage("userArr", userArr);
-  }
-}
-
 //-FUNCTION-
 function checkInvalidUser() {
   // Check duplicate username
@@ -63,7 +43,7 @@ registerBtn.addEventListener("click", function () {
       usernameInput.value,
       passwordInput.value
     );
-    inputUser.save();
+    inputUser.save(userArr);
     // Move to login
     window.location.href = "../pages/login.html";
   }

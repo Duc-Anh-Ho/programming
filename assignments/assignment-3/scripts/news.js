@@ -11,13 +11,30 @@ const newsUrl =
   `${newsTopHeadline}` +
   `${newsCountry}` +
   `apiKey=${newsAPI}`;
-//-CLASS-
-//-FUNCTION-
-async function postData(url = "") {
-  const response = await fetch(url);
-  return response.json();
-}
-// -MAIN-
-console.log(fetch(newsUrl));
-console.log(postData(newsUrl));
-console.log(postData(newsUrl).then((a) => a.articles));
+
+// // -FUNCTION-
+// async function postData(url = "") {
+//   const response = await fetch(url);
+//   // return response;
+//   const json = await response.json();
+//   return json;
+//   const articles = await json.articles;
+//   // return articles;
+//   const thing = await articles[0];
+//   return thing;
+// }
+
+// // -MAIN-
+// // console.log(postData(newsUrl));
+// // console.log(postData(newsUrl[0]));
+// // console.log(postData(newsUrl[1]));
+// // console.log(postData(newsUrl[2]));
+// const news = postData(newsUrl);
+// console.log(news);
+// // console.log(newsUrl);
+
+const news2 = fetch(newsUrl)
+  .then((res) => res.json())
+  .then((act) => act.articles[0].author);
+// .then((data) => data[0].author);
+console.log(news2);
