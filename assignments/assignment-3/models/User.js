@@ -30,7 +30,6 @@ class News extends User {
     this.url = url;
     this.API = API;
   }
-
   async init() {
     // return await (await fetch(this.url)).json(); //Oneline fetch and json
     const response = await fetch(this.url);
