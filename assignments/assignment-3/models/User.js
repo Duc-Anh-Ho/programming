@@ -11,22 +11,26 @@ class User {
     this.lastName = lastName;
     this.username = username;
     this.password = password;
+    this.newsPerPage = "5"; //default news per page is 5
+    this.newsCategory = "general"; //default news per page is 5
   }
-  save(saveTo) {
-    saveTo.push({
+
+  save(arr) {
+    arr.push({
       // Class Intance to Object
       username: this.username,
       firstName: this.firstName,
       lastName: this.lastName,
       password: this.password,
+      newsPerPage: this.newsPerPage,
+      newsCategory: this.newsCategory,
     });
-    saveToStorage("userArr", saveTo);
+    saveToStorage("userArr", arr);
   }
 }
-
-class News extends User {
+class News {
   constructor(username, url = defaultNewsUrl, API) {
-    super(undefined, undefined, username); //Skip fName and lName)
+    this.username = username;
     this.url = url;
     this.API = API;
   }
@@ -36,3 +40,33 @@ class News extends User {
     return await response.json();
   }
 }
+
+class Task {
+  constructor(task, owner) {
+    this.owner = owner;
+    this.taskList = [{
+      taskName: task,
+      isDone: false, //Default is false
+    }]; 
+  }
+  create(arr) {
+    arr.push({
+      owner: this.owner,
+      taskList: this.taskList, 
+    });
+    saveToStorage("taskArr", arr);
+  }
+  update(arr) {
+    const taskArr = getFromStorage("taskArr");
+    taskArr.forEach((item) => {
+      if (item.owner === this.owner) {
+        item.taskList.push();
+      }
+    });
+    saveToStorage("taskArr", arr);
+  }
+  toggle() {
+    if (this.)
+  }
+}
+

@@ -6,11 +6,12 @@ const previousButton = document.querySelector("#btn-prev");
 const nextButton = document.querySelector("#btn-next");
 const pageNumber = document.querySelector("#page-num");
 const newsContainer = document.querySelector("#news-container");
+const textNews = document.querySelector(".mb-4");
 //Variables
 const currentUser = getFromStorage("currentUser");
 const newsWeb = `https://newsapi.org/v2/`;
-// const newsAPI = "apiKey=" + "9d96b117656d4797a676584025563e2e"; // Main API
-const newsAPI = "apiKey=" + "d46449d487d74324a5d01c995cb8f408"; //one API limited 100 requests/day
+const newsAPI = "apiKey=" + "9d96b117656d4797a676584025563e2e"; // Main API
+// const newsAPI = "apiKey=" + "d46449d487d74324a5d01c995cb8f408"; //one API limited 100 requests/day
 const newsEndpoint = {
   everything: `everything` + `?`,
   topHeadLine: `top-headlines` + `?`,
@@ -100,9 +101,10 @@ const newsCategory = {
 const newsSource = {
   country: `country=${newsCountry.US}&`,
   language: `language=${newsLanguage.English}&`,
-  category: `category=${newsCategory.science}&`,
-  // pageSize: `pageSize=${newsPageSize}&`,
-  // page: `page=${newsPage}&`,
+  category: `category=${newsCategory.technology}&`,
+  pageSize: `pageSize=${26}&`, // Take all ariticle from API at onetime _ Default: 20, Max: 100
+  page: `page=${1}&`, // Don't use, cause fetch all articles at one
+  searchKey: `q=${""}&`,
 };
 const newsUrl =
   `${newsWeb}` + //Fixed
@@ -110,23 +112,30 @@ const newsUrl =
   `${newsSource.country}` +
   `${newsSource.language}` +
   `${newsSource.category}` +
+  `${newsSource.pageSize}` +
+  // `${newsSource.page}` +
+  `${newsSource.searchKey}` +
   `${newsAPI}`; //Fixed
-//Classes
-const userNews = new News(currentUser[0].username, newsUrl, newsAPI);
 //Empty Global Variables
+let userNews;
 let todayNews;
 let newsPage = 1;
-let newsPageSize = 5;
+let newsPerPage = 5;
 // -FUNCTION-
 //Function Declare
 function errorHandler(error) {
   console.log("Error Catched:");
   console.error(error);
 }
+function displayPageNumber(number) {
+  pageNumber.innerHTML = newsPage;
+  //Check to display previous button
+  number > 1
+    ? (previousButton.style.display = "block")
+    : (previousButton.style.display = "none");
+}
 function deleteNewsData() {
   newsContainer.innerHTML = "";
-  // Hide prevous button
-  previousButton.style.display = "none";
 }
 function renderHtml(newsArticles) {
   const newsHTML = `
@@ -162,34 +171,57 @@ function renderHtml(newsArticles) {
     </div>`;
   return newsHTML;
 }
-function displayNewsData(newsArticlesArr, onePageDisplay = 5) {
+function displayNewsData(newsArticlesArr, newsPerPage = 5, currentPage = 1) {
   // Delete current news
   deleteNewsData();
+  // Define 1st page variable
+  const firstArcticle = (currentPage - 1) * newsPerPage;
   // Check if don't have enough news display on 1 page
-  if (newsArticlesArr.length < onePageDisplay)
-    onePageDisplay = newsArticlesArr.length;
-  //renderHTML
-  for (let i = 0; i < onePageDisplay; i++) {
+  if (newsArticlesArr.length > newsPerPage) {
+    if (newsArticlesArr.length > currentPage * newsPerPage) {
+      nextButton.style.display = "block";
+    }
+    if (newsArticlesArr.length === currentPage * newsPerPage) {
+      nextButton.style.display = "none";
+      previousButton.style.display = "block";
+    }
+    if (newsArticlesArr.length < currentPage * newsPerPage) {
+      nextButton.style.display = "none";
+      previousButton.style.display = "block";
+      newsPerPage = newsArticlesArr.length - firstArcticle;
+    }
+  } else {
+    nextButton.style.display = "none";
+    newsPerPage = newsArticlesArr.length;
+  }
+  for (let i = firstArcticle; i < firstArcticle + newsPerPage; i++) {
     newsContainer.insertAdjacentHTML(
       "beforeend",
       renderHtml(newsArticlesArr[i])
     );
   }
 }
-function displayPageNumber(number) {
-  pageNumber.innerHTML = newsPage;
-  //Check to display previous button
-  number > 1
-    ? (previousButton.style.display = "block")
-    : (previousButton.style.display = "none");
+
+function checkLogin(user) {
+  nextButton.style.display = "none";
+  previousButton.style.display = "none";
+  pageNumber.style.display = "none";
+  if (user.length === 0) {
+    textNews.innerHTML = `Please <a href="./login.html">login</a> to see News!!!`;
+    return false;
+  } else {
+    userNews = new News(user[0].username, newsUrl, newsAPI);
+    pageNumber.style.display = "block";
+    return true;
+  }
 }
 //Asynchronous Function Declare
 async function pullNewsdata() {
   try {
     // Create news data from API
     todayNews = await userNews.init();
-    // Display default page after load
-    displayNewsData(todayNews.articles, newsPageSize);
+    // Display default page after load *
+    displayNewsData(todayNews.articles, newsPerPage);
   } catch (error) {
     // Errow Handler
     errorHandler(error);
@@ -199,17 +231,24 @@ async function pullNewsdata() {
 // -MAIN-
 // Delete current news
 deleteNewsData();
-// Pull news data from newsAPi
-pullNewsdata();
-// When clicked previous button
-previousButton.addEventListener("click", function (e) {
-  newsPage -= 1;
-  displayPageNumber(newsPage);
-});
+// Login check
+if (checkLogin(currentUser)) {
+  // Pull news data from newsAPi
+  pullNewsdata();
+}
 // When clicked next button
 nextButton.addEventListener("click", function (e) {
   newsPage += 1;
   displayPageNumber(newsPage);
+  // Display next page
+  displayNewsData(todayNews.articles, newsPerPage, newsPage);
+});
+// When clicked previous button
+previousButton.addEventListener("click", function (e) {
+  newsPage -= 1;
+  displayPageNumber(newsPage);
+  // Display previous page
+  displayNewsData(todayNews.articles, newsPerPage, newsPage);
 });
 
 // -TEST-
