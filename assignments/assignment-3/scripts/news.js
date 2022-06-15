@@ -101,8 +101,8 @@ const newsCategory = {
 const newsSource = {
   country: `country=${newsCountry.US}&`,
   language: `language=${newsLanguage.English}&`,
-  category: `category=${newsCategory.technology}&`,
-  pageSize: `pageSize=${26}&`, // Take all ariticle from API at onetime _ Default: 20, Max: 100
+  category: `category=${newsCategory.general}&`,
+  pageSize: `pageSize=${100}&`, // Take all ariticle from API at onetime _ Default: 20, Max: 100
   page: `page=${1}&`, // Don't use, cause fetch all articles at one
   searchKey: `q=${""}&`,
 };

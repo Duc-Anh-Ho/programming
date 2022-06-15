@@ -28,6 +28,7 @@ class User {
     saveToStorage("userArr", arr);
   }
 }
+
 class News {
   constructor(username, url = defaultNewsUrl, API) {
     this.username = username;
@@ -44,15 +45,17 @@ class News {
 class Task {
   constructor(task, owner) {
     this.owner = owner;
-    this.taskList = [{
-      taskName: task,
-      isDone: false, //Default is false
-    }]; 
+    this.taskList = [
+      {
+        taskName: task,
+        isDone: false, //Default is false
+      },
+    ];
   }
   create(arr) {
     arr.push({
       owner: this.owner,
-      taskList: this.taskList, 
+      taskList: this.taskList,
     });
     saveToStorage("taskArr", arr);
   }
@@ -60,13 +63,23 @@ class Task {
     const taskArr = getFromStorage("taskArr");
     taskArr.forEach((item) => {
       if (item.owner === this.owner) {
-        item.taskList.push();
+        item.taskList.push(this.taskList);
       }
     });
     saveToStorage("taskArr", arr);
   }
-  toggle() {
-    if (this.)
+  toggle(task) {
+    const taskArr = getFromStorage("taskArr");
+    taskArr.forEach((item) => {
+      if (item.owner === this.owner) {
+        item.taskList.task.forEach((item) => {
+          if (item.taskName === task) {
+            item.isDone = !item.isDone;
+          }
+        });
+        item.taskList.push(this.taskList);
+      }
+    });
+    saveToStorage("taskArr", arr);
   }
 }
-

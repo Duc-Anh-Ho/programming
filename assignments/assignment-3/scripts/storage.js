@@ -1,5 +1,5 @@
 "use strict";
-"use strict";
+
 // Save data under LocalStorage
 //-DEFINE-
 let dataStorage;
