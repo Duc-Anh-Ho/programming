@@ -49,6 +49,6 @@ registerBtn.addEventListener("click", function () {
   }
 });
 // When press Enter Key
-document.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") registerBtn.click();
+document.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") registerBtn.click();
 });

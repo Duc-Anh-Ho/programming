@@ -52,34 +52,53 @@ class Task {
       },
     ];
   }
-  create(arr) {
-    arr.push({
-      owner: this.owner,
-      taskList: this.taskList,
-    });
-    saveToStorage("taskArr", arr);
-  }
-  update(arr) {
+  push() {
     const taskArr = getFromStorage("taskArr");
+    let isOldUser;
     taskArr.forEach((item) => {
       if (item.owner === this.owner) {
-        item.taskList.push(this.taskList);
+        item.taskList.push(this.taskList[0]);
+        isOldUser = true;
       }
     });
-    saveToStorage("taskArr", arr);
+    if (!isOldUser) {
+      taskArr.push({
+        owner: this.owner,
+        taskList: this.taskList,
+      });
+    }
+    saveToStorage("taskArr", taskArr);
   }
-  toggle(task) {
+  toggle() {
     const taskArr = getFromStorage("taskArr");
     taskArr.forEach((item) => {
       if (item.owner === this.owner) {
-        item.taskList.task.forEach((item) => {
-          if (item.taskName === task) {
+        item.taskList.forEach((item) => {
+          if (
+            item.taskName.replace(/\s/g, "").toLowerCase() ===
+            this.taskList[0].taskName
+          ) {
             item.isDone = !item.isDone;
           }
         });
-        item.taskList.push(this.taskList);
       }
     });
-    saveToStorage("taskArr", arr);
+    saveToStorage("taskArr", taskArr);
+  }
+  delete() {
+    const taskArr = getFromStorage("taskArr");
+    taskArr.forEach((item) => {
+      if (item.owner === this.owner) {
+        item.taskList.forEach((item2, i) => {
+          if (
+            item2.taskName.replace(/\s/g, "").toLowerCase() ===
+            this.taskList[0].taskName
+          ) {
+            item.taskList.splice(i, 1);
+          }
+        });
+      }
+    });
+    saveToStorage("taskArr", taskArr);
   }
 }
