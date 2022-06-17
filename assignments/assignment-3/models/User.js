@@ -6,17 +6,17 @@ const defaultNewsUrl =
   "https://newsapi.org/v2/top-headlines?country=us&apiKey=9d96b117656d4797a676584025563e2e";
 //-CLASS-
 class User {
-  constructor(firstName, lastName, username, password) {
+  constructor(username, firstName, lastName, password) {
+    this.username = username;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.username = username;
     this.password = password;
     this.newsPerPage = "5"; //default news per page is 5
     this.newsCategory = "general"; //default news per page is 5
   }
-
-  save(arr) {
-    arr.push({
+  save() {
+    const userArr = getFromStorage("userArr");
+    userArr.push({
       // Class Intance to Object
       username: this.username,
       firstName: this.firstName,
@@ -25,7 +25,23 @@ class User {
       newsPerPage: this.newsPerPage,
       newsCategory: this.newsCategory,
     });
-    saveToStorage("userArr", arr);
+    saveToStorage("userArr", userArr);
+  }
+  update(pageAmount, catergoty) {
+    const userArr = getFromStorage("userArr");
+    const currentUser = getFromStorage("currentUser");
+    // update current user
+    currentUser[0].newsPerPage = pageAmount;
+    currentUser[0].newsCategory = catergoty;
+    // update user arr
+    userArr.forEach((item) => {
+      if (item.username === this.username) {
+        item.newsPerPage = pageAmount;
+        item.newsCategory = catergoty;
+      }
+    });
+    saveToStorage("userArr", userArr);
+    saveToStorage("currentUser", currentUser);
   }
 }
 

@@ -4,10 +4,9 @@
 let alertMessage = "";
 let currentUser = getFromStorage("currentUser");
 const userArr = getFromStorage("userArr");
-const loginBtn = document.querySelector("#btn-submit");
+const loginButton = document.querySelector("#btn-submit");
 const usernameInput = document.querySelector("#input-username");
 const passwordInput = document.querySelector("#input-password");
-//-CLASS-
 
 //-FUNCTION-
 function checkInputUser() {
@@ -37,7 +36,7 @@ function checkInputUser() {
   if (!userExist)
     alertMessage +=
       "Your Username or Password is incorrect.\nPlease try again!";
-  // Display alear message
+  // Display alert message
   if (alertMessage) {
     alert(alertMessage);
     alertMessage = "";
@@ -57,10 +56,10 @@ function checkNoCurrentUser() {
 // Check current user exist or not
 checkNoCurrentUser();
 // When click Login Button
-loginBtn.addEventListener("click", function (e) {
+loginButton.addEventListener("click", function (e) {
   if (checkInputUser()) checkNoCurrentUser();
 });
 // When press Enter Key
 document.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") loginBtn.click();
+  if (e.key === "Enter") loginButton.click();
 });

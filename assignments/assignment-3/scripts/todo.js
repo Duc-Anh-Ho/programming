@@ -19,7 +19,7 @@ function deleteTodoData() {
 }
 function checkLogin(user) {
   if (!user) {
-    textTodoList.innerHTML = `Please <a href="./login.html">login</a> to see your Todo List!!!`;
+    textTodoList.innerHTML = `Please <a href="./login.html">login</a> to see your Todo List.`;
     todoListInputContainer.innerHTML = "";
     return false;
   } else {

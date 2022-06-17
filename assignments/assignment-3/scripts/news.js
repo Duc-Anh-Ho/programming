@@ -98,29 +98,13 @@ const newsCategory = {
   sports: "sports",
   technology: "technology",
 };
-const newsSource = {
-  country: `country=${newsCountry.US}&`,
-  language: `language=${newsLanguage.English}&`,
-  category: `category=${newsCategory.general}&`,
-  pageSize: `pageSize=${100}&`, // Take all ariticle from API at onetime _ Default: 20, Max: 100
-  page: `page=${1}&`, // Don't use, cause fetch all articles at one
-  searchKey: `q=${""}&`,
-};
-const newsUrl =
-  `${newsWeb}` + //Fixed
-  `${newsEndpoint.topHeadLine}` + //Fixed
-  `${newsSource.country}` +
-  `${newsSource.language}` +
-  `${newsSource.category}` +
-  `${newsSource.pageSize}` +
-  // `${newsSource.page}` +
-  `${newsSource.searchKey}` +
-  `${newsAPI}`; //Fixed
+const newsPerPage = Number(currentUser[0].newsPerPage);
 //Empty Global Variables
+let newsPage = 1;
 let userNews;
 let todayNews;
-let newsPage = 1;
-let newsPerPage = 5;
+let newsSource;
+let newsUrl;
 // -FUNCTION-
 //Function Declare
 function errorHandler(error) {
@@ -210,6 +194,26 @@ function checkLogin(user) {
     textNews.innerHTML = `Please <a href="./login.html">login</a> to see News!!!`;
     return false;
   } else {
+    newsSource = {
+      // Default options
+      countryDefault: `country=${newsCountry.US}&`,
+      languageDefault: `language=${newsLanguage.English}&`,
+      categoryDefault: `category=${newsCategory.general}&`,
+      pageSizeDefault: `pageSize=${100}&`, // Take all ariticle from API at onetime _ Default: 20, Max: 100
+      pageDefault: `page=${1}&`, // Don't use, cause fetch all articles at one
+      // User settings
+      categoryUser: `category=${currentUser[0].newsCategory}&`,
+      searchKey: `q=${""}&`,
+    };
+    newsUrl =
+      `${newsWeb}` + //Fixed
+      `${newsEndpoint.topHeadLine}` + //Fixed
+      `${newsSource.countryDefault}` + //Default
+      `${newsSource.languageDefault}` + //Default
+      `${newsSource.categoryUser}` + // User
+      `${newsSource.pageSizeDefault}` + // Default
+      `${newsSource.searchKey}` + // User
+      `${newsAPI}`; //Fixed
     userNews = new News(user[0].username, newsUrl, newsAPI);
     pageNumber.style.display = "block";
     return true;

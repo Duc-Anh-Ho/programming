@@ -14,7 +14,7 @@ const confirmPasswordInput = document.querySelector("#input-password-confirm");
 //-FUNCTION-
 function checkInvalidUser() {
   // Check duplicate username
-  userArr.forEach((item, i) => {
+  userArr.forEach((item) => {
     if (usernameInput.value === item.username)
       alertMessage += "Username already exists!\n";
   });
@@ -38,12 +38,12 @@ function checkInvalidUser() {
 registerBtn.addEventListener("click", function () {
   if (checkInvalidUser()) {
     const inputUser = new User(
+      usernameInput.value,
       firstNameInput.value,
       lastNameInput.value,
-      usernameInput.value,
       passwordInput.value
     );
-    inputUser.save(userArr);
+    inputUser.save();
     // Move to login
     window.location.href = "../pages/login.html";
   }
