@@ -98,9 +98,9 @@ const newsCategory = {
   sports: "sports",
   technology: "technology",
 };
-const newsPerPage = Number(currentUser[0].newsPerPage);
 //Empty Global Variables
 let newsPage = 1;
+let newsPerPage;
 let userNews;
 let todayNews;
 let newsSource;
@@ -184,6 +184,7 @@ function displayNewsData(newsArticlesArr, newsPerPage = 5, currentPage = 1) {
       renderHtml(newsArticlesArr[i])
     );
   }
+  console.log("n-Display");
 }
 
 function checkLogin(user) {
@@ -215,6 +216,7 @@ function checkLogin(user) {
       `${newsSource.searchKey}` + // User
       `${newsAPI}`; //Fixed
     userNews = new News(user[0].username, newsUrl, newsAPI);
+    newsPerPage = new Number(currentUser[0].newsPerPage);
     pageNumber.style.display = "block";
     return true;
   }
@@ -222,6 +224,7 @@ function checkLogin(user) {
 //Asynchronous Function Declare
 async function pullNewsdata() {
   try {
+    console.log("n-async1");
     // Create news data from API
     todayNews = await userNews.init();
     // Display default page after load *
@@ -233,6 +236,7 @@ async function pullNewsdata() {
 }
 
 // -MAIN-
+console.log("n-Begin");
 // Delete current news
 deleteNewsData();
 // Login check
@@ -242,17 +246,25 @@ if (checkLogin(currentUser)) {
 }
 // When clicked next button
 nextButton.addEventListener("click", function (e) {
-  newsPage += 1;
-  displayPageNumber(newsPage);
-  // Display next page
-  displayNewsData(todayNews.articles, newsPerPage, newsPage);
+  try {
+    newsPage += 1;
+    displayPageNumber(newsPage);
+    // Display next page
+    displayNewsData(todayNews.articles, newsPerPage, newsPage);
+  } catch (error) {
+    errorHandler(error);
+  }
 });
 // When clicked previous button
 previousButton.addEventListener("click", function (e) {
-  newsPage -= 1;
-  displayPageNumber(newsPage);
-  // Display previous page
-  displayNewsData(todayNews.articles, newsPerPage, newsPage);
+  try {
+    newsPage -= 1;
+    displayPageNumber(newsPage);
+    // Display previous page
+    displayNewsData(todayNews.articles, newsPerPage, newsPage);
+  } catch (error) {
+    errorHandler(error);
+  }
 });
 
 // -TEST-
@@ -262,3 +274,7 @@ document.addEventListener("keyup", (event) => {
     window.open(newsUrl, "_blank").focus();
   }
 });
+function testF() {
+  console.log("n-Test");
+}
+console.log("n-End");

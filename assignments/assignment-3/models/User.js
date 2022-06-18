@@ -53,7 +53,9 @@ class News {
   }
   async init() {
     // return await (await fetch(this.url)).json(); //Oneline fetch and json
+    console.log("u-async1");
     const response = await fetch(this.url);
+    console.log("u-async2");
     return await response.json();
   }
 }
