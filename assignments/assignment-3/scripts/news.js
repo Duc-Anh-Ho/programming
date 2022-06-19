@@ -101,14 +101,15 @@ const newsCategory = {
 //Empty Global Variables
 let newsPage = 1;
 let newsPerPage;
-let userNews;
-let todayNews;
 let newsSource;
 let newsUrl;
+let userNews;
+let todayNews;
+let newsSearchKey = "";
 // -FUNCTION-
 //Function Declare
 function errorHandler(error) {
-  console.log("Error Catched:");
+  // console.log("Error Catched:");
   console.error(error);
 }
 function displayPageNumber(number) {
@@ -156,8 +157,9 @@ function renderHtml(newsArticles) {
   return newsHTML;
 }
 function displayNewsData(newsArticlesArr, newsPerPage = 5, currentPage = 1) {
-  // Delete current news
+  // Delete current news and display page number
   deleteNewsData();
+  pageNumber.style.display = "block";
   // Define 1st page variable
   const firstArcticle = (currentPage - 1) * newsPerPage;
   // Check if don't have enough news display on 1 page
@@ -184,7 +186,7 @@ function displayNewsData(newsArticlesArr, newsPerPage = 5, currentPage = 1) {
       renderHtml(newsArticlesArr[i])
     );
   }
-  console.log("n-Display");
+  // console.log("n-Display");
 }
 
 function checkLogin(user) {
@@ -192,9 +194,16 @@ function checkLogin(user) {
   previousButton.style.display = "none";
   pageNumber.style.display = "none";
   if (user.length === 0) {
-    textNews.innerHTML = `Please <a href="./login.html">login</a> to see News!!!`;
+    textNews.innerHTML = `Please <a href="./login.html">login</a> first!`;
     return false;
   } else {
+    return true;
+  }
+}
+//Asynchronous Function Declare
+async function pullNewsdata(user) {
+  try {
+    // console.log("n-async1");
     newsSource = {
       // Default options
       countryDefault: `country=${newsCountry.US}&`,
@@ -204,7 +213,7 @@ function checkLogin(user) {
       pageDefault: `page=${1}&`, // Don't use, cause fetch all articles at one
       // User settings
       categoryUser: `category=${currentUser[0].newsCategory}&`,
-      searchKey: `q=${""}&`,
+      searchKey: `q=${newsSearchKey}&`,
     };
     newsUrl =
       `${newsWeb}` + //Fixed
@@ -215,18 +224,11 @@ function checkLogin(user) {
       `${newsSource.pageSizeDefault}` + // Default
       `${newsSource.searchKey}` + // User
       `${newsAPI}`; //Fixed
-    userNews = new News(user[0].username, newsUrl, newsAPI);
+    userNews = new News(user[0].username, newsUrl);
     newsPerPage = new Number(currentUser[0].newsPerPage);
-    pageNumber.style.display = "block";
-    return true;
-  }
-}
-//Asynchronous Function Declare
-async function pullNewsdata() {
-  try {
-    console.log("n-async1");
     // Create news data from API
     todayNews = await userNews.init();
+    // console.log("searchKey:", newsSource.searchKey);
     // Display default page after load *
     displayNewsData(todayNews.articles, newsPerPage);
   } catch (error) {
@@ -236,13 +238,13 @@ async function pullNewsdata() {
 }
 
 // -MAIN-
-console.log("n-Begin");
+// console.log("n-Begin");
 // Delete current news
 deleteNewsData();
 // Login check
 if (checkLogin(currentUser)) {
   // Pull news data from newsAPi
-  pullNewsdata();
+  pullNewsdata(currentUser);
 }
 // When clicked next button
 nextButton.addEventListener("click", function (e) {
@@ -268,13 +270,13 @@ previousButton.addEventListener("click", function (e) {
 });
 
 // -TEST-
-document.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
-    console.log(newsUrl);
-    window.open(newsUrl, "_blank").focus();
-  }
-});
-function testF() {
-  console.log("n-Test");
-}
-console.log("n-End");
+// document.addEventListener("keyup", (event) => {
+//   if (event.key === "Enter") {
+//     console.log(newsUrl);
+//     window.open(newsUrl, "_blank").focus();
+//   }
+// });
+// function testF() {
+//   console.log("n-Test");
+// }
+// console.log("n-End");

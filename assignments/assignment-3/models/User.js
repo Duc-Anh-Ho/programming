@@ -46,16 +46,15 @@ class User {
 }
 
 class News {
-  constructor(username, url = defaultNewsUrl, API) {
+  constructor(username, url = defaultNewsUrl) {
     this.username = username;
     this.url = url;
-    this.API = API;
   }
   async init() {
     // return await (await fetch(this.url)).json(); //Oneline fetch and json
-    console.log("u-async1");
+    // console.log("u-async1");
     const response = await fetch(this.url);
-    console.log("u-async2");
+    // console.log("u-async2");
     return await response.json();
   }
 }
