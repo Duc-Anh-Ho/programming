@@ -1,0 +1,68 @@
+// 1.1: Stewie
+public class Stewie  {
+	public static void main(String[] args) {
+        System.out.println("//////////////////////");
+        System.out.println("|| Victory is mine! ||");
+        System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+    }
+}
+
+// 1.2: Spikey
+public class Spikey {
+    public static void main(String[] args) {
+        System.out.println("  \\/\n \\\\//\n\\\\\\///\n///\\\\\\\n //\\\\\n  /\\");
+    }
+}
+
+// 1.3: WellFormed
+public class WellFormed {
+    public static void main(String[] args) {
+        System.out.println("A well-formed Java program has");
+        System.out.println("a main method with { and }");
+        System.out.println("braces.");
+        System.out.println("");
+        System.out.println("A System.out.println statement");
+        System.out.println("has ( and ) and usually a");
+        System.out.println("String that starts and ends");
+        System.out.println("with a \" character.");
+        System.out.println("(But we type \\\" instead!)");
+    }
+}
+
+// 1.4: Difference
+public class Difference {
+    public static void main(String arg[]) {
+        System.out.print(
+                "What is the difference between\na ' and a \"?  Or between a \" and a \\\"?\n\nOne is what we see when we're typing our program.\nThe other is what appears on the \"console.\"");
+    }
+}
+
+// 1.5: MuchBetter
+public class MuchBetter {
+    public static void main(String arg[]) {
+        System.out.print(
+                "A \"quoted\" String is\n'much' better if you learn\nthe rules of \"escape sequences.\"\nAlso, \"\" represents an empty String.\nDon't forget: use \\\" instead of \" !\n'' is not the same as \"");
+    }
+}
+
+// 1.6: Meta
+public class Meta {
+    public static void main(String[] args) {
+        System.out.print(
+                "public class Hello {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, world!\");\n    }\n}");
+    }
+}
+
+// 1.7: Mantra
+public class Mantra {
+    public static void main(String[] args) {
+        add();
+        System.out.println();
+        add();
+    }
+
+    public static void add() {
+        System.out.println(
+                "There's one thing every coder must understand:\nThe System.out.println command.");
+    }
+}
