@@ -66,3 +66,147 @@ public class Mantra {
                 "There's one thing every coder must understand:\nThe System.out.println command.");
     }
 }
+
+// 1.8: Stewie2
+public class Stewie2 {
+    public static void main(String[] args) {
+        System.out.println("//////////////////////");
+        for (int i = 0; i < 5; i++) {
+            add();
+        }
+    }
+    public static void add() {
+        System.out.println("|| Victory is mine! ||");
+        System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+    }
+}
+
+// 1.9: Egg 
+public class Egg {
+    public static void main(String[] args) {
+        System.out.println("  _______\n /       \\\n/         \\\n-\"-\'-\"-\'-\"-\n\\         /\n \\_______/");
+    } 
+}
+
+//  1.10: Egg2
+public class Egg2 {
+    public static void main(String[] args) {
+        top();
+        bot();
+        mid();
+        top();
+        bot();
+        mid();
+        bot();
+        top();
+        mid();
+        bot();
+    }
+    public static void top() {
+        System.out.println("  _______\n /       \\\n/         \\");
+    }
+    public static void bot() {
+        System.out.println("\\         /\n \\_______/");
+    }
+    public static void mid() {
+        System.out.println("-\"-'-\"-'-\"-");
+    }
+}
+
+//  1.11: TwoRockets
+public class TwoRockets {
+    public static void main(String[] args) {
+        top();
+        mid1();
+        mid2();
+        mid1();
+        top();
+    }
+    public static void top() {
+        System.out.println("   /\\       /\\\n  /  \\     /  \\\n /    \\   /    \\");
+    }
+    public static void mid1() {
+        System.out.println("+------+ +------+\n|      | |      |\n|      | |      |\n+------+ +------+");
+    }
+    public static void mid2() {
+        System.out.println("|United| |United|\n|States| |States|");
+    }
+    
+}
+
+// 1.12: FightSong
+public class FightSong {
+    public static void main(String[] args) {
+        go();
+        System.out.println();
+        goYougo();
+        System.out.println();
+        goYougo();
+        System.out.println();
+        go();
+    }
+    public static void go() {
+        System.out.println("Go, team, go!\nYou can do it.");
+    }
+    public static void you() {
+        System.out.println("You're the best,\nIn the West.");
+    }
+    public static void goYougo() {
+                go();
+                you();
+        go();
+    }
+}
+
+// 1.13: StarFigures
+public class StarFigures {
+    public static void main(String[] args) {
+        twoLine();
+        x();
+        System.out.println();
+        twoLine();
+        x();
+        twoLine();
+        System.out.println();
+        i();
+        twoLine();
+        x();
+    }
+    public static void twoLine() {
+        System.out.println("*****\n*****");
+    }
+    public static void x() {
+        System.out.println(" * *\n  *\n * *");
+    }
+    public static void i() {
+        System.out.println("  *\n  *\n  *");
+    }
+}
+
+// 1.14: Lanterns
+public class Lanterns {
+    public static void main(String[] args) {
+
+        System.out.println("    *****\n  *********\n*************\n\n    *****\n  *********\n*************\n* | | | | | *\n*************\n    *****\n  *********\n*************\n\n    *****\n  *********\n*************\n    *****\n* | | | | | *\n* | | | | | *\n    *****\n    *****\n");
+
+    }
+}
+
+// 1.15: EggStop
+public class EggStop {
+    public static void main(String[] args) {
+        System.out.println("  ______\n /      \\\n/        \\\n\\        /\n \\______/\n\n  ______\n /      \\\n/        \\\n\\        /\n \\______/\n+--------+\n\n  ______\n /      \\\n/        \\\n|  STOP  |\n\\        /\n \\______/\n+--------+\n\n");
+    }
+}
+
+// 1.16: Shining
+public class Shining {
+    public static void main(String[] args) {
+        for (int i = 0; i < 1000; i++) {
+            txt();
+        }
+    }
+    public static void txt(){
+        System.out.println("All work and no play makes Jack a dull boy.");
+    }
+}
