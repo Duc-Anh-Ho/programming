@@ -5,7 +5,7 @@ public class Shining {
             txt();
         }
     }
-    public static void txt(){
+    static public void txt(){
         System.out.println("All work and no play makes Jack a dull boy.");
     }
 }
