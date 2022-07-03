@@ -1,0 +1,1 @@
+1. Biến static có phải là global không?, và biến static có liên quan gì với các kiểu biến của access modifier không?
