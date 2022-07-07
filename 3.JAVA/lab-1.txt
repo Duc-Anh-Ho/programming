@@ -227,3 +227,72 @@ public class lab {
         }
     }
 }
+
+// 4.13: colors
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("What color do you want? ");
+        String color = input.nextLine();
+        if (color.toUpperCase().equals("R")) {
+            System.out.println("You have chosen Red.");
+        } else if (color.toUpperCase().equals("G")) {
+            System.out.println("You have chosen Green.");
+        } else if (color.toUpperCase().equals("B")) {
+            System.out.println("You have chosen Blue.");
+        } else {
+            System.out.println("Unknown color: " + color);
+        }
+    }
+}
+
+
+// 4.7: evenOdd
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Type a number: ");
+        int number = input.nextInt();
+        if (number % 2 == 0) {
+            System.out.println("even");
+        } else {
+            System.out.println("odd");
+        }
+    }
+}
+
+// 4.15: getGrade
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Score: ");
+        int score = input.nextInt();
+        System.out.println("Grade: " + getGrade(score));
+        input.close();
+    }
+
+    public static double getGrade(int score) {
+        double grade = 0.8;
+        if (score < 0 || score > 100) {
+            throw new IllegalArgumentException();
+        }
+        if (score < 60) {
+            grade = 0.0;
+        } else if (score <= 62) {
+            grade = 0.7;
+        } else if (score >= 95) {
+            grade = 4.0;
+        } else {
+            for (int i = 63; i < score; i++) {
+                grade += 0.1;
+            }
+        }
+        return grade;
+    }
+}

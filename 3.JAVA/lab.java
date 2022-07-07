@@ -1,16 +1,32 @@
-// 4.4: daysInMonth
+
+// 4.15: getGrade
+import java.util.Scanner;
+
 public class lab {
     public static void main(String[] args) {
-            System.out.print(daysInMonth(9));
-        } 
-    public static int daysInMonth(int month){
-        if (month == 1 || month == 3 || month == 5 || month == 7 ||month == 8 || month == 10 || month == 12){
-            return 31;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Score: ");
+        int score = input.nextInt();
+        System.out.println("Grade: " + getGrade(score));
+        input.close();
+    }
+
+    public static double getGrade(int score) {
+        double grade = 0.8;
+        if (score < 0 || score > 100) {
+            throw new IllegalArgumentException();
         }
-        else if (month == 2) {
-            return 28;
+        if (score < 60) {
+            grade = 0.0;
+        } else if (score <= 62) {
+            grade = 0.7;
+        } else if (score >= 95) {
+            grade = 4.0;
         } else {
-             return 30;
+            for (int i = 63; i < score; i++) {
+                grade += 0.1;
+            }
         }
+        return grade;
     }
 }
