@@ -296,3 +296,93 @@ public class lab {
         return grade;
     }
 }
+
+// 4.16: printPalindrome
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        printPalindrome(input);
+        input.close();
+    }
+
+    public static void printPalindrome(Scanner input) {
+        System.out.print("Type one or more words: ");
+        String text = input.nextLine();
+        if (text.toUpperCase().equals(new StringBuilder(text).reverse().toString().toUpperCase())) {
+            System.out.print(text + " is a palindrome!");
+        } else {
+            System.out.print(text + " is not a palindrome.");
+        }
+    }
+}
+
+// 4.19: quadrant
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("x: ");
+        double x = input.nextDouble();
+        System.out.print("y: ");
+        double y = input.nextDouble();
+        System.out.println("Quadrant: " + quadrant(x, y));
+        input.close();
+    }
+
+    public static int quadrant(double x, double y) {
+        int quadrant = 0;
+        if (!(x == 0 || y == 0)) {
+            if (x * y > 0) {
+                if (x > 0) {
+                    quadrant = 1;
+                } else {
+                    quadrant = 3;
+                }
+            } else {
+                if (x < 0) {
+                    quadrant = 2;
+                } else {
+                    quadrant = 4;
+                }
+            }
+        }
+        return quadrant;
+    }
+}
+
+// 4.20: numUnique
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("x: ");
+        double x = input.nextDouble();
+        System.out.print("y: ");
+        double y = input.nextDouble();
+        System.out.print("z: ");
+        double z = input.nextDouble();
+        System.out.println("Unique: " + numUnique(x, y, z));
+        input.close();
+    }
+
+    public static int numUnique(double x, double y, double z) {
+        int number = 3;
+        if (x - y == 0) {
+            number -= 1;
+        }
+        if (x - z == 0) {
+            number -= 1;
+        }
+        if (y - z == 0) {
+            number -= 1;
+        }
+        if (x == y && x == z) {
+            number += 1;
+        }
+        return number;
+    }
+}

@@ -1,32 +1,34 @@
 
-// 4.15: getGrade
+// 4.20: numUnique
 import java.util.Scanner;
 
 public class lab {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Score: ");
-        int score = input.nextInt();
-        System.out.println("Grade: " + getGrade(score));
+        System.out.print("x: ");
+        double x = input.nextDouble();
+        System.out.print("y: ");
+        double y = input.nextDouble();
+        System.out.print("z: ");
+        double z = input.nextDouble();
+        System.out.println("Unique: " + numUnique(x, y, z));
         input.close();
     }
 
-    public static double getGrade(int score) {
-        double grade = 0.8;
-        if (score < 0 || score > 100) {
-            throw new IllegalArgumentException();
+    public static int numUnique(double x, double y, double z) {
+        int number = 3;
+        if (x - y == 0) {
+            number -= 1;
         }
-        if (score < 60) {
-            grade = 0.0;
-        } else if (score <= 62) {
-            grade = 0.7;
-        } else if (score >= 95) {
-            grade = 4.0;
-        } else {
-            for (int i = 63; i < score; i++) {
-                grade += 0.1;
-            }
+        if (x - z == 0) {
+            number -= 1;
         }
-        return grade;
+        if (y - z == 0) {
+            number -= 1;
+        }
+        if (x == y && x == z) {
+            number += 1;
+        }
+        return number;
     }
 }
