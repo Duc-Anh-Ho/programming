@@ -1,34 +1,31 @@
-
-// 4.20: numUnique
-import java.util.Scanner;
-
 public class lab {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("x: ");
-        double x = input.nextDouble();
-        System.out.print("y: ");
-        double y = input.nextDouble();
-        System.out.print("z: ");
-        double z = input.nextDouble();
-        System.out.println("Unique: " + numUnique(x, y, z));
-        input.close();
+        int a = 12;
+        double b = 13;
+        double c = m(a, b);
+        System.out.println("c: " + c);
+
+        double d = m(c, a);
+        System.out.println("d: " + d);
+
+        double e = m(a, (int) d);
+        System.out.println("e: " + e);
+
+        System.out.println("d = " + d);
     }
 
-    public static int numUnique(double x, double y, double z) {
-        int number = 3;
-        if (x - y == 0) {
-            number -= 1;
-        }
-        if (x - z == 0) {
-            number -= 1;
-        }
-        if (y - z == 0) {
-            number -= 1;
-        }
-        if (x == y && x == z) {
-            number += 1;
-        }
-        return number;
+    public static double m(int x, double y) {
+        System.out.println("1: " + (x + y));
+        return x + y;
+    }
+
+    public static double m(double x, double y) {
+        System.out.println("2: " + (x - y));
+        return x - y;
+    }
+
+    public static double m(int x, int y) {
+        System.out.println("3: " + (x % y));
+        return x % y;
     }
 }

@@ -1,3 +1,4 @@
+/// lab-1
 // 1.1: Stewie
 public class Stewie  {
 	public static void main(String[] args) {
@@ -211,6 +212,8 @@ public class Shining {
     }
 }
 
+
+/// lab-3
 // 4.4: daysInMonth
 public class lab {
     public static void main(String[] args) {
@@ -385,4 +388,109 @@ public class lab {
         }
         return number;
     }
+}
+
+/// lab-4
+//2.1: displacement
+double s0 = 12.0;
+double v0 = 3.5;
+double a = 9.8;
+double t = 10;
+
+double s = s0 + v0 * t + 0.5 * a * Math.pow(t,2);
+System.out.print(s);
+
+//2.2: loopSquares
+for(int i = 1; i<=10; i++){
+    System.out.print((int) Math.pow(i,2)+" ");
+}
+
+// 2.3: fibonacci
+public class lab {
+    public static void main(String[] args) {
+        int x1 = 0;
+        int x2 = 1;
+        int x = x1 + x2;
+        for (int i = 0; i < 12; i++) {
+            System.out.print(x + " ");
+            // System.out.println("x:" + x + " x1:" + x1 + " " + "x2:" + x2);
+            x = x1 + x2;
+            x1 = x2;
+            x2 = x;
+        }
+    }
+}
+
+// 2.4: starSquare
+for (int i=0;i<4;i++){
+ for (int j=0;j<5;j++){
+     System.out.print("*");
+ }
+    System.out.print("\n");
+}
+
+// 2.5: starTriangle
+for (int i=0;i<5;i++){
+ for (int j=0;j<=i;j++){
+     System.out.print("*");
+ }
+    System.out.print("\n");
+}
+
+// 2.6: numberTriangle
+for (int i=1;i<=7;i++){
+ for (int j=1;j<=i;j++){
+     System.out.print(i);
+ }
+    System.out.print("\n");
+}
+
+// 2.7: spacedNumbers
+for (int i=1;i<=5;i++){
+ for (int j=5;j>i;j--){
+     System.out.print(" ");
+ }
+    System.out.print(i+"\n");
+}
+
+// 2.8: spacesAndNumbers
+for (int i=1;i<=5;i++){
+ for (int j=4;j>=i;j--){
+     System.out.print(" ");
+ }
+ for (int j=1;j<=i;j++){
+     System.out.print(i);
+ }  
+    System.out.print("\n");
+}
+
+// 2.9: waveNumbers40
+for (int i=1;i<=40;i++){
+     System.out.print("-");
+}
+System.out.print("\n");
+for (int j=1;j<=10;j++){
+     System.out.print("_-^-");
+}
+System.out.print("\n");
+for (int j = 1;j<=2;j++){
+    for (int i=1;i<=9;i++){
+         System.out.print(i+""+i);
+    }
+    System.out.print("00");
+}
+System.out.print("\n");
+for (int i=1;i<=40;i++){
+     System.out.print("-");
+}
+
+// 2.10: numbersOutput60
+for (int i=1;i<=6;i++){
+     System.out.print("         |");
+}
+System.out.print("\n");
+for (int j=1;j<=6;j++){
+     for (int i = 1;i<=10;i++){
+         System.out.print(i%10);
+     }
 }
