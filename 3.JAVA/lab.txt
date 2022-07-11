@@ -494,3 +494,126 @@ for (int j=1;j<=6;j++){
          System.out.print(i%10);
      }
 }
+
+// lab-5
+// 3.1: printNumbers
+public class lab {
+    public static void main(String[] args) {
+        printNumbers(5);
+        printNumbers(15);
+    }
+
+    public static void printNumbers(int num) {
+        for (int i = 1; i <= num; i++) {
+            System.out.print("[" + i + "] ");
+        }
+        System.out.println();
+    }
+}
+
+// 3.2: printPowersOf2
+public class lab {
+    public static void main(String[] args) {
+        printPowersOf2(3);
+        printPowersOf2(10);
+    }
+
+    public static void printPowersOf2(int num) {
+        for (int i = 0; i <= num; i++) {
+            System.out.print((int) Math.pow(2, i) + " ");
+        }
+        System.out.println();
+    }
+}
+
+// 3.3: printPowersOfN
+public class lab {
+    public static void main(String[] args) {
+        printPowersOfN(4, 3);
+        printPowersOfN(5, 6);
+        printPowersOfN(-2, 8);
+    }
+
+    public static void printPowersOfN(int x, int y) {
+        for (int i = 0; i <= y; i++) {
+            System.out.print((int) Math.pow(x, i) + " ");
+        }
+        System.out.println();
+    }
+}
+// 3.4: printSquare
+public class lab {
+    public static void main(String[] args) {
+        // printSquare(1, 5);
+        printSquare(3, 9);
+        // printSquare(0, 3);
+    }
+
+    public static void printSquare(int x, int y) {
+        for (int j = 0; j <= y - x; j++) {
+            for (int i = 0; i <= y - x; i++) {
+                int q = i + x + j;
+                if (q > y) {
+                    q = q - (y - x + 1);
+                }
+                System.out.print("" + q);
+            }
+            System.out.println();
+        }
+    }
+}
+
+// 3.5: printGrid
+public class lab {
+    public static void main(String[] args) {
+        printGrid(3, 6);
+        // printGrid(5, 5);
+        // printGrid(4, 1);
+    }
+
+    public static void printGrid(int x, int y) {
+        for (int j = 1; j <= x; j++) {
+            System.out.print(j);
+            for (int i = 1; i < y; i++) {
+                System.out.print(", " + (j + i * x));
+            }
+            System.out.println();
+        }
+    }
+}
+
+// 3.6: largerAbsVal
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(largerAbsVal(3, 6));
+    }
+
+    public static int largerAbsVal(int x, int y) {
+        return Math.max(Math.abs(x), Math.abs(y));
+    }
+}
+
+// 3.7: largestAbsVal
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(largestAbsVal(7, -2, -11));
+    }
+
+    public static int largestAbsVal(int x, int y, int z) {
+        return Math.max(Math.abs(x), Math.max(Math.abs(y), Math.abs(z)));
+    }
+}
+
+// 3.8: quadratic
+public class lab {
+    public static void main(String[] args) {
+        quadratic(1, -7, 12);
+    }
+
+    public static void quadratic(int a, int b, int c) {
+        double x1 = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
+        double x2 = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
+        System.out.println("First root = " + x1);
+        System.out.println("Second root = " + x2);
+    }
+}
