@@ -617,3 +617,188 @@ public class lab {
         System.out.println("Second root = " + x2);
     }
 }
+
+// 3.9: lastDigit
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(lastDigit(3572));
+    }
+
+    public static int lastDigit(int x) {
+        return Math.abs(x % 10);
+    }
+}
+
+// 3.10: area
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(area(2.0));
+    }
+
+    public static double area(double x) {
+        return Math.pow(x, 2) * Math.PI;
+    }
+}
+
+// 3.13: pay
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(pay(4.0, 11));
+    }
+
+    public static double pay(double x, double y) {
+        if (y <= 8) {
+            return x * y;
+        } else {
+            return x * 8 + x * 1.5 * (y - 8);
+        }
+    }
+}
+
+// 3.14: cylinderSurfaceArea
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(cylinderSurfaceArea(3.0, 4.5));
+    }
+
+    public static double cylinderSurfaceArea(double x, double y) {
+        return 2 * Math.PI * Math.pow(x, 2) + 2 * Math.PI * x * y;
+    }
+}
+
+// 3.15: sphereVolume
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(sphereVolume(2.0));
+    }
+
+    public static double sphereVolume(double x) {
+        return Math.PI * Math.pow(x, 3) * 4 / 3;
+    }
+}
+
+// 3.16: triangleArea
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(triangleArea(8.0, 5.2, 7.1));
+    }
+
+    public static double triangleArea(double x, double y, double z) {
+        double s = (x + y + z) / 2;
+        return Math.sqrt(s * (s - x) * (s - y) * (s - z));
+    }
+}
+
+// 3.17: padString
+public class lab {
+    public static void main(String[] args) {
+        System.out.println(padString("hello", 8));
+        System.out.println(padString("congratulations", 10));
+    }
+
+    public static String padString(String a, int x) {
+        String s = "";
+        if (a.length() < x) {
+            for (int i = 0; i < x - a.length(); i++) {
+                s += " ";
+            }
+        }
+        return s + a;
+    }
+}
+
+// 3.18: vertical
+public class lab {
+    public static void main(String[] args) {
+        System.out.println();
+        vertical("hey now")
+    }
+
+    public static void vertical(String a) {
+        String s = "";
+        for (int i = 0; i < a.length(); i++) {
+            s += a.charAt(i) + "\n";
+        }
+        System.out.println(s);
+    }
+}
+
+// 3.19: printReverse 
+public class lab {
+    public static void main(String[] args) {
+        System.out.println();
+        printReverse("hey now");
+    }
+
+    public static void printReverse(String a) {
+        String s = "";
+        for (int i = a.length() - 1; i >= 0; i--) {
+            s += a.charAt(i);
+        }
+        System.out.println(s);
+    }
+}
+
+// 3.20: inputBirthday 
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        inputBirthday(input);
+        input.close();
+    }
+
+    public static void inputBirthday(Scanner input) {
+        System.out.print("On what day of the month were you born? ");
+        int day = input.nextInt();
+        System.out.print("What is the name of the month in which you were born? ");
+        String month = input.next();
+        System.out.print("During what year were you born? ");
+        int year = input.nextInt();
+        System.out.print("You were born on " + month + " " + day + ", " + year + ". You're mighty old!");
+    }
+}
+
+// 3.21: processName 
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        processName(input);
+        input.close();
+    }
+
+    public static void processName(Scanner input) {
+        System.out.print("Please enter your full name: ");
+        String fname = input.next();
+        String lname = input.next();
+        System.out.print("Your name in reverse order is " + lname + ", " + fname);
+    }
+}
+
+// 3.22: TheNameGameExercise
+import java.util.Scanner;
+
+public class TheNameGame {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("What is your name? "); // asks question first,
+        String first = scan.next(); // THEN accepts first
+        String last = scan.next(); // and last name
+        String newFirst = first.substring(1);
+        String newLast = last.substring(1);
+
+        playGame(first, newFirst);
+        System.out.println();
+        playGame(last, newLast);
+    }
+
+    public static void playGame(String name, String nn) {
+        System.out.println(name + " " + name + ", " + "bo-B" + nn);
+        System.out.println("Banana-fana fo-F" + nn);
+        System.out.println("Fee-fi-mo-M" + nn);
+        System.out.println(name.toUpperCase() + "!");
+    }
+}
