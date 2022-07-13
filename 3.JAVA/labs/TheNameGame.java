@@ -1,3 +1,4 @@
+package labs;
 
 // 3.22: TheNameGameExercise
 import java.util.Scanner;
@@ -5,9 +6,9 @@ import java.util.Scanner;
 public class TheNameGame {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.print("What is your name? "); // asks question first,
-        String first = scan.next(); // THEN accepts first
-        String last = scan.next(); // and last name
+        System.out.print("What is your name? "); 
+        String first = scan.next(); 
+        String last = scan.next();
         String newFirst = first.substring(1);
         String newLast = last.substring(1);
 
