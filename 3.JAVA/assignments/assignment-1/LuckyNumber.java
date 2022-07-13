@@ -6,7 +6,7 @@ public class LuckyNumber {
     public static int randomNumber = createRandomNumber(randomMax);
 
     public static void main(String arg[]) {
-        System.out.println("NUM: " + randomNumber); // TEST
+        System.out.println("NUM: " + randomNumber); // TEST randomNumber
         System.out.println("Please guess the secret number between 0 end " + randomMax + " !");
         checkNumber();
         checkPlayAgain(input);
@@ -44,7 +44,7 @@ public class LuckyNumber {
         String confirm = input.next().toLowerCase();
         if (confirm.matches("y|yes")) {
             randomNumber = createRandomNumber(randomMax);
-            System.out.println("NUM: " + randomNumber); // TEST
+            System.out.println("NUM: " + randomNumber); // TEST randomNumber
             checkNumber();
             checkPlayAgain(input);
         }
