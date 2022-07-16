@@ -783,10 +783,10 @@ import java.util.Scanner;
 
 public class TheNameGame {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.print("What is your name? "); 
-        String first = scan.next(); 
-        String last = scan.next();
+        String first = input.next(); 
+        String last = input.next();
         String newFirst = first.substring(1);
         String newLast = last.substring(1);
 
@@ -801,3 +801,21 @@ public class TheNameGame {
         System.out.println("Fee-fi-mo-M" + nn);
         System.out.println(name.toUpperCase() + "!");
     }
+
+// lab-6
+// 7.1: lastIndexOf
+public class lab {
+    public static void main(String[] args) {
+        int[] arr = { 74, 85, 102, 99, 101, 85, 56 };
+        System.out.println(lastIndexOf(arr, 85));
+    }
+
+    public static int lastIndexOf(int[] arr, int index) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] == index) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
