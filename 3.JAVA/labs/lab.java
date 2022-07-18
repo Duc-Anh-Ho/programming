@@ -1,17 +1,17 @@
-// 7.1: lastIndexOf
-
+// 7.7: kthLargest
 public class lab {
     public static void main(String[] args) {
-        int[] arr = { 74, 85, 102, 99, 101, 85, 56 };
-        System.out.println(lastIndexOf(arr, 85));
+        int[] arr = { 74, 85, 102, 99, 101, 56, 84 };
+        System.out.println(kthLargest(0, arr));
     }
 
-    public static int lastIndexOf(int[] arr, int index) {
-        for (int i = arr.length - 1; i >= 0; i--) {
-            if (arr[i] == index) {
-                return i;
+    public static int kthLargest(int numOrder, int[] arr) {
+        int temp = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (temp < arr[i]) {
+                arr[i] = temp;
             }
         }
-        return -1;
+        return arr[numOrder];
     }
 }

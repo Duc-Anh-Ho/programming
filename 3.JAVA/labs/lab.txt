@@ -819,3 +819,117 @@ public class lab {
         return -1;
     }
 }
+import java.lang.reflect.Array;
+
+// 7.2: range
+public class lab {
+    public static void main(String[] args) {
+        int[] arr = { 74, 85, 102, 99, 101, 85, 56 };
+        System.out.println(range(arr));
+    }
+
+    public static int range(int[] arr) {
+        int max = arr[0], min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return max - min + 1;
+    }
+}
+
+// 7.3: countInRange
+public class lab {
+    public static void main(String[] args) {
+        int[] arr = { 14, 1, 22, 17, 36, 7, -43, 5 };
+        System.out.println(countInRange(arr, 4, 17));
+    }
+
+    public static int countInRange(int[] arr, int min, int max) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if ((arr[i] >= min) && (arr[i] <= max)) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+// 7.4: isSorted
+public class lab {
+    public static void main(String[] args) {
+        // double[] arr = { 16.1, 12.3, 22.2, 14.4 };
+        double[] arr = { 1.5, 4.3, 7.0, 19.5, 25.1, 46.2 };
+        System.out.println(isSorted(arr));
+    }
+
+    public static boolean isSorted(double[] arr) {
+        double temp = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (temp <= arr[i]) {
+                temp = arr[i];
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+// 7.5: mode
+public class lab {
+    public static void main(String[] args) {
+        int[] arr = { 27, 15, 15, 11, 27 };
+        System.out.println(mode(arr));
+    }
+
+    public static int mode(int[] arr) {
+        int mostRepeat = arr[0];
+        int max = 1;
+        for (int i = 0; i < arr.length; i++) {
+            int temp = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    temp++;
+                }
+            }
+            if (temp == max && mostRepeat > arr[i]) {
+                mostRepeat = arr[i];
+            } else if (temp > max) {
+                max = temp;
+                mostRepeat = arr[i];
+            }
+        }
+        return mostRepeat;
+    }
+}
+
+// 7.5: stdev
+public class lab {
+    public static void main(String[] args) {
+        int[] arr = { 1, -2, 4, -4, 9, -6, 16, -8, 25, -10 };
+        System.out.println(stdev(arr));
+    }
+
+    public static double stdev(int[] arr) {
+        double average = 0;
+        double deviation = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            average += arr[i];
+        }
+        System.out.println(average);
+        average /= arr.length;
+        System.out.println(average);
+        for (int i = 0; i < arr.length; i++) {
+            deviation += Math.pow((arr[i] - average), 2);
+        }
+        deviation = Math.sqrt(deviation / (arr.length - 1));
+        return deviation;
+    }
+}
