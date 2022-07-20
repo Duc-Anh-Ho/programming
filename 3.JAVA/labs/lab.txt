@@ -909,7 +909,7 @@ public class lab {
     }
 }
 
-// 7.5: stdev
+// 7.6: stdev
 public class lab {
     public static void main(String[] args) {
         int[] arr = { 1, -2, 4, -4, 9, -6, 16, -8, 25, -10 };
@@ -931,5 +931,20 @@ public class lab {
         }
         deviation = Math.sqrt(deviation / (arr.length - 1));
         return deviation;
+    }
+}
+
+// 7.7: kthLargest
+import java.util.Arrays;
+
+public class lab {
+    public static void main(String[] args) {
+        int[] arr = { 74, 85, 102, 99, 101, 56, 84 };
+        System.out.println(kthLargest(2, arr));
+    }
+
+    public static int kthLargest(int numOrder, int[] arr) {
+        Arrays.sort(arr);   
+        return arr[arr.length - numOrder - 1] ;
     }
 }
