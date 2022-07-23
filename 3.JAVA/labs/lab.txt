@@ -1120,6 +1120,7 @@ public class lab {
     return false;
     }
 }
+
 // 7.15: collapse
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1140,5 +1141,93 @@ public class lab {
             arrList.add(arr.length);
         }
         return arrList.stream().mapToInt(i -> i).toArray();
+    }
+}
+
+// 7.16: append
+import java.util.Arrays;
+
+public class lab {
+    public static void main(String[] args) {
+        int[] arr1 = { 7, 2, 8, 9, 4, 13, 7, 1, 9, 10 };
+        int[] arr2 = { 1, 2, 3, 4, 5 };
+        System.out.println(Arrays.toString(append(arr1, arr2)));
+    }
+
+    public static int[] append(int[] arr1, int[] arr2) {
+        int[] arr = new int[arr1.length + arr2.length];
+        for (int i = 0; i < arr1.length; i++) {
+            arr[i] = arr1[i];
+        }
+        for (int i = arr1.length; i < arr1.length + arr2.length; i++) {
+            arr[i] = arr2[i - arr1.length];
+        }
+        return arr;
+    }
+}
+
+// 7.17: vowelCount
+import java.util.Arrays;
+
+public class lab {
+    public static void main(String[] args) {
+        // int[] arr1 = { 7, 1, 8, 9, 4, 13, 7, 1, 9, 10 };
+        // int[] arr2 = { 1, 2, 3, 4, 5 };
+        String text = "i think, therefore i am";
+        System.out.println(Arrays.toString(vowelCount(text)));
+    }
+
+    public static int[] vowelCount(String text) {
+        int arr[] = new int[5];
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == 'a') {
+                arr[0]++;
+            }
+            if (text.charAt(i) == 'e') {
+                arr[1]++;
+            }
+            if (text.charAt(i) == 'i') {
+                arr[2]++;
+            }
+            if (text.charAt(i) == 'o') {
+                arr[3]++;
+            }
+            if (text.charAt(i) == 'u') {
+                arr[4]++;
+            }
+        }
+        return arr;
+    }
+}
+
+// 7.18: wordLengths 
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class lab {
+    public static void main(String[] args) throws IOException {
+        File file = new File("3.JAVA\\labs\\lab-6-7.18-wordLengths.txt");
+        Scanner input = new Scanner(file);
+        wordLengths(input);
+        input.close();
+    }
+
+    public static void wordLengths(Scanner input) {
+        int arr[] = new int[81];
+        while (input.hasNext()) {
+            arr[input.next().length()]++;
+        }
+        // System.out.println(Arrays.toString(arr));
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                System.out.print(i + ": " + arr[i] + "\t");
+                for (int j = 0; j < arr[i]; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
     }
 }
